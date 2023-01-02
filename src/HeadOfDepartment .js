@@ -1,79 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const HeadOfDepartment = () => {
-  const previousComplaints = [
-    { id: 1, description: 'The food in the cafeteria is not up to standard.' },
-    { id: 2, description: 'The classroom chairs are uncomfortable.' },
-    { id: 3, description: 'There is a lack of parking spaces on campus.' }
-  ];
-  const [grievances, setGrievances] = useState([]);
+const StudentGrievanceForm = () => {
+  const name = 'John Doe';
+  const registrationNumber = '123456';
+  const department = 'Computer Science';
+  const [grievance, setGrievance] = useState('');
 
-  useEffect(() => {
-    // fetch the list of grievances from the server
-    // and update the state with the response data
-  }, []);
-
-  const handleResolve = (grievanceId) => {
-    // send a request to the server to mark the grievance as resolved
-    // and update the state with the updated list of grievances
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // submit the form
   };
 
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h2 className="text-xl font-bold text-gray-700 mb-4">Grievances</h2>
-      <table className="w-full text-left table-collapse">
-        <thead>
-          <tr>
-            <th className="text-sm font-semibold text-gray-700 p-2 bg-gray-100">Grievance</th>
-            <th className="text-sm font-semibold text-gray-700 p-2 bg-gray-100">Student</th>
-            <th className="text-sm font-semibold text-gray-700 p-2 bg-gray-100">Status</th>
-            <th className="text-sm font-semibold text-gray-700 p-2 bg-gray-100">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {grievances.map((grievance) => (
-            <tr key={grievance.id}>
-              <td className="p-2 border-t border-gray-400">{grievance.description}</td>
-              <td className="p-2 border-t border-gray-400">{grievance.student}</td>
-              <td className="p-2 border-t border-gray-400">{grievance.status}</td>
-              <td className="p-2 border-t border-gray-400">
-                {grievance.status === 'pending' && (
-                  <button
-                    onClick={() => handleResolve(grievance.id)}
-                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  >
-                    Resolve
-                  </button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="bg-white p-6 shadow-md rounded-lg">
-      <h3 className="text-2xl font-bold mb-4">Previous Complaints</h3>
-      {previousComplaints.map(complaint => (
-        <div key={complaint.id} className="mb-4">
-          <p className="text-gray-700 mb-2">{complaint.description}</p>
-          <div className="flex justify-between">
-            <button
-              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700"
-              onClick={() => console.log(complaint.id)}
-            >
-              Resolve
-            </button>
-            <button
-              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700"
-              onClick={() => console.log(complaint.id)}
-            >
-              Reject
-            </button>
-          </div>
+    <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto mt-10">
+      <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="w-full px-3 mb-6">
+          <h1 className="text-2xl font-bold mb-2 text-gray-800">
+            Student Grievance Form
+          </h1>
+          <p className="text-gray-700 font-medium mb-4">
+            Name: {name}
+          </p>
+          <p className="text-gray-700 font-medium mb-4">
+            Registration Number: {registrationNumber}
+          </p>
+          <p className="text-gray-700 font-medium mb-4">
+            Department: {department}
+          </p>
         </div>
-      ))}
-    </div>
-    </div>
-  );
+        <div className="w-full px-3 mb-6">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="grievance"
+          >
+            Grievance
+          </label>
+          <textarea
+            className="appearance-none resize-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border focus:border-gray-500"
+            id="grievance"
+            rows="8"
+            value={grievance}
+            onChange={(event) => setGrievance(event.target.value)}
+          ></textarea>
+        </div>
+        <div className="w-full px-3 mb-6">
+  <button
+    type="submit"
+    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+  >
+    Submit
+  </button>
+</div>
+</div>
+
+</form>
+);
 };
 
-export default HeadOfDepartment;
+export default StudentGrievanceForm;
