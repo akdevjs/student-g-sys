@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-
-const LoginForm = () => {
+import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { db } from "./firebase";
+import { collection, query, getDocs } from "firebase/firestore";
+import { setUserAPI } from "./actions/index";
+const LoginForm = ({setUser}) => {
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState("std");
   const [credential, setCredential] = useState("Registration Number")
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) =>{
     setSelectedOption(e.target.value)
@@ -16,6 +24,57 @@ const LoginForm = () => {
     }
     console.log(e.target.value)
 
+  }
+  const Login = async(e)=>{
+    e.preventDefault();
+    setLoading(true)
+    const q = query(collection(db, selectedOption));
+
+const querySnapshot = await getDocs(q);
+let fetchedUsers = []
+querySnapshot.forEach((doc) => {
+  fetchedUsers.push({...doc.data(), id:doc.id})
+});
+console.log(fetchedUsers)
+if(selectedOption === "std"){
+let flag = false
+let userObj = null; 
+fetchedUsers.forEach((user)=>{
+  if(user.RegistrationNumber === username && user.Password === password){
+    flag = true
+    userObj = user;
+  }
+})
+if(flag){
+  setUser(userObj)
+  // Uet-19S-Bscs-13
+  console.log(userObj)
+  navigate('/student')
+}
+else{
+  console.log("wrong fuck")
+}
+}
+else if(selectedOption === "hod"){
+  let flag = false
+  let userObj = null; 
+  fetchedUsers.forEach((user)=>{
+    if(user.EmployeeNumber === username && user.Password === password){
+      flag = true
+      userObj = user;
+    }
+  })
+  if(flag){
+    setUser(userObj)
+    // Uet-19S-Bscs-13
+    console.log(userObj)
+    // navigate('/student')
+  }
+  else{
+    console.log("wrong fuck")
+  }
+  }
+setLoading(false)
   }
   return (
     <>
@@ -37,7 +96,7 @@ const LoginForm = () => {
               Log in
             </h2>
             <div class="mt-12">
-              <form>
+              <form onSubmit={Login}>
                 <div class="text-sm font-bold text-gray-700 tracking-wide">
                   Login as
                 </div>
@@ -83,7 +142,9 @@ const LoginForm = () => {
                   </div>
                   <input
                     class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                    type=""
+                    type="text"
+                    value = {username}
+                    onChange = {(e)=> setUsername(e.target.value)}
                     placeholder={selectedOption === "admin"?"abc123":selectedOption === "hod"?"xxx-Emp-xxx":"Uet-xxx-Bscs-xx"}
                   />
                 </div>
@@ -96,18 +157,32 @@ const LoginForm = () => {
                   </div>
                   <input
                     class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                    type=""
+                    type="password"
+                    value = {password}
+                    onChange = {(e)=> setPassword(e.target.value)}
                     placeholder="Enter your password"
                   />
                 </div>
                 <div class="mt-10">
-                  <button
-                    class="bg-blue-500 text-gray-100 p-4 w-full rounded-full tracking-wide
-                        font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-blue-600
-                        shadow-lg"
-                  >
-                    Log In
-                  </button>
+                
+  {loading ? (
+     <div
+     className="bg-blue-500 text-gray-100 p-4 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline shadow-lg"
+   >
+    <div className="loading-animation">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    </div>
+  ) : (
+    <button
+    type="submit"
+    className="bg-blue-500 text-gray-100 p-4 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg"
+  >
+    Log In
+</button>
+  )}
                 </div>
               </form>
             
@@ -126,4 +201,12 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+
+const mapStateToProps = (state) => ({
+  user: state.userState,
+});
+const dispatchStateToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUserAPI(user)),
+});
+
+export default connect(mapStateToProps, dispatchStateToProps)(LoginForm);
