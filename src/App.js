@@ -8,7 +8,6 @@ import Login from "./Compenents/Login";
 import Header from "./Compenents/Header";
 import Student from "./Compenents/Student";
 import Footer from "./Compenents/Footer";
-import HeadOfDepartment from "./Compenents/HeadOfDepartment "
 import Table from "./Compenents/Table";
 import { connect } from "react-redux";
 
