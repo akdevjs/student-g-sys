@@ -22,10 +22,30 @@ const Form = ({ user }) => {
   const handleSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
+    console.log(grievance.length)
+    if( grievance.length < 50 ){
+      console.log("here")
+
+      addToast("Grievance Must be more then 50 characters", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+      setLoading(false);
+    }
+    else if( subject.length < 10 ){
+      console.log("here")
+      addToast("Subject Must be more then 10 characters", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+      setLoading(false);
+    }
+    else{
     const docRef = await addDoc(collection(db, "complains"), {
       name: user.Name,
       registrationNumber: user.RegistrationNumber,
       department: user.Department,
+      semester:user.Semester,
       subject,
       complain: grievance,
       date: getDate(),
@@ -38,6 +58,7 @@ const Form = ({ user }) => {
       appearance: "success",
       autoDismiss: true,
     });
+  }
   };
 
   return (

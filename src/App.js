@@ -4,10 +4,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Login from "./Login";
+import Login from "./Compenents/Login";
 import Header from "./Compenents/Header";
 import Student from "./Compenents/Student";
 import Footer from "./Compenents/Footer";
+import HeadOfDepartment from "./Compenents/HeadOfDepartment "
+import Table from "./Compenents/Table";
 import { connect } from "react-redux";
 
 import Complaints from "./Compenents/Complaints";
@@ -50,23 +52,59 @@ function App({user}) {
         </>
       ),
     },
+    {
+      path: "/hod",
+      element: (
+        <>
+        <Header role="hod"/>
+        <Complaints role = "hod"/>
+        <Footer/>
+        </>
+      ),
+    },
+    {
+      path: "/hod/:id",
+      element: (
+        <>
+        <Header role="hod"/>
+        <Complain/>
+        <Footer/>
+        </>
+      ),
+    },
+    {
+      path: "/admin",
+      element: (
+        <>
+        <Header role="admin"/>
+        <Complaints role="admin"/>
+        <Footer/>
+        </>
+      ),
+    },
+    {
+      path: "/admin/student",
+      element: (
+        <>
+        <Header role="admin"/>
+        <Table role="std"/>
+        <Footer/>
+        </>
+      ),
+    },
+    {
+      path: "/admin/hod",
+      element: (
+        <>
+        <Header role="admin"/>
+        <Table role="hod"/>
+        <Footer/>
+        </>
+      ),
+    },
   ]);
   return (
     <RouterProvider router={router} />
-    // <div className="flex flex-col">
-    //  <Header/>
-    //  {/* <Student/> */}
-    //  {/* <Complaints role = "hod"/> */}
-    //  <Complain/>
-    //  <Footer/>
-    //   {/* <Form/> */}
-    //  {/* Completed the Form */}
-    //  {/* <StudentGrievance/> */}
-    //  {/* <StudentLogin/> */}
-    //  {/* <HeadOfDepartment/> */}
-    //  {/* <LoadingScreen/> */}
-
-    // </div>
   );
 }
 

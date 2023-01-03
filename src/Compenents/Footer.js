@@ -7,10 +7,11 @@ const Footer = () => {
         <div className="w-full md:w-1/4 text-center md:text-left py-2">
           <h5 className="uppercase font-semibold tracking-wide">Contact</h5>
           <p className="mt-3">
-            123 Main Street<br />
-            Anytown, USA 12345<br />
-            Phone: (123) 456-7890<br />
-            Email: info@university.edu
+          University of Enigneering &<br />
+     Technology Taxila, 47050<br />
+            
+            Phone: +92 51-9047-400<br />
+            Fax: +92 51-9047-420
           </p>
         </div>
         <div className="w-full md:w-1/4 text-center md:text-left py-2">
@@ -32,14 +33,14 @@ const Footer = () => {
           </ul>
         </div>
         <div className="w-full md:w-1/4 text-center md:text-left py-2">
-          <h5 className="uppercase font-semibold tracking-wide">About</h5>
+          <h5 className="uppercase font-semibold tracking-wide">About UET, Texla</h5>
           <p className="mt-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar magna enim, eu faucibus felis aliquam eget.
+          With phenomenal increase in students' enrollment in 1970's, a plan to establish additional campuses of the University of Engineering and Technology Lahore was conceived. As a result of that, the University College of Engineering Taxila was established.
           </p>
         </div>
       </div>
       <hr className="my-4" />
-<p className="text-center text-gray-500 py-2">Copyright &copy; {new Date().getFullYear()} UET, Texla University. All rights reserved.</p>
+<p className="text-center text-gray-500 py-2">Copyright &copy; {new Date().getFullYear()} UET, Texla . All rights reserved.</p>
     </footer>
   );
 }

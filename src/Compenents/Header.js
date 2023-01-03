@@ -74,7 +74,7 @@ const Header = ({role, user, setUserAPI}) => {
           !isMenuOpen ? "-translate-x-full" : "-translate-x-0"
         } md:-translate-x-0 md:flex-row md:space-y-0 space-y-3 flex-col items-center justify-between py-4 px-8 bg-white shadow-lg  w-full fixed top-20 md:top-0 z-50`}
       >
-        <div class="flex  md:flex-row flex-col items-center">
+        <Link to={role === "std"? "/student":role === "hod"?"/hod":"/admin"} class="flex  md:flex-row flex-col items-center">
           <img
             src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/UET_Taxila_logo.svg/1200px-UET_Taxila_logo.svg.png"
             alt="UET Taxila logo"
@@ -84,18 +84,32 @@ const Header = ({role, user, setUserAPI}) => {
             Student Grievance System
            
           </p>
-        </div>
+        </Link>
         {user &&
         <>
        
         <hr className="md:hidden block w-full bg-gray-700" />
         {role === "std" &&
         <div>
-        <Link to="/student" class={`bg-white ${location.pathname ==="/student" && "underline" } hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full`}>
+        <Link to="/student" onClick={toggleMenu} class={`bg-white ${location.pathname ==="/student" && "underline" } hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full`}>
          Home
         </Link>
-        <Link to="/student/complains" class={`bg-white ${location.pathname ==="/student/complains" && "underline" } hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full`}>
+        <Link to="/student/complains" onClick={toggleMenu} class={`bg-white ${location.pathname ==="/student/complains" && "underline" } hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full`}>
           Previous Complaints
+        </Link>
+       
+        </div>
+        }
+        {role === "admin" &&
+        <div>
+        <Link to="/admin" onClick={toggleMenu} class={`bg-white ${location.pathname ==="/admin" && "underline" } hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full`}>
+         Home
+        </Link>
+        <Link to="/admin/student" onClick={toggleMenu} class={`bg-white ${location.pathname ==="/admin/student" && "underline" } hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full`}>
+         Students
+        </Link>
+        <Link to="/admin/hod" onClick={toggleMenu} class={`bg-white ${location.pathname ==="/admin/hod" && "underline" } hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full`}>
+          HOD's
         </Link>
        
         </div>
