@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+- Student Grievance System
+  A web application that allows students to register their complaints and grievances with the university administration. The application is built using React.js, CSS, Redux, and Firebase for database and authentication. The application allows for three different types of users: students, HODs, and administrators.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Features
+  Student login: Students can register complaints, view the status of their complaints, and receive updates on their complaints. They can also provide feedback on the resolutions of their complaints.
 
-## Available Scripts
+HOD login: HODs can view and manage the complaints assigned to them. They can also reject or resolve complaints and provide feedback on the resolutions.
 
-In the project directory, you can run:
+Admin login: Administrators can add or remove students and HODs, view and manage all complaints, and view the progress of the complaints.
 
-### `npm start`
+Real-time updates: The application uses Firebase for real-time updates, ensuring that users receive notifications of any changes to the status of their complaints.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Responsive design: The application is designed to be accessible on all devices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Testing the Application
+  You can test the application by using the following credentials:
 
-### `npm test`
+HOD:
+Employee Number: 123-emp-456
+Password: 123emp123
+Student:
+Registration Number: Uet-19s-bscs-13
+Password: zain123
+Admin:
+Username: admin
+Password: admin123
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Live Demo
+  You can access the live demo of the application at student-g-sys.web.app
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Conclusion
+  The Student Grievance System is a powerful and user-friendly web application that allows students to register complaints and grievances with the university administration. The application is built using React.js, CSS, Redux, and Firebase, ensuring a smooth and responsive user experience. The application is designed to be accessible on all devices, and it uses Firebase for real-time updates, ensuring that users receive notifications of any changes to the status of their complaints. Overall, this is a perfect tool for universities that want to improve their complaint management process.
