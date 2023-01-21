@@ -14,14 +14,6 @@ A web application that allows students to register their complaints and grievanc
 
 - **Responsive design:** The application is designed to be accessible on all devices.
 
-### Screenshots
-
-- **Student Dashboard:**
-![Student Dashboard](https://i.imgur.com/v5lz7Yi.png)
-- **HOD Dashboard:**
-![HOD Dashboard](https://i.imgur.com/4Y4QOyD.png)
-- **Admin Dashboard:**
-![Admin Dashboard](https://i.imgur.com/lz1HG1X.png)
 
 ### Testing the Application
 
