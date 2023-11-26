@@ -21,10 +21,10 @@ You can test the application by using the following credentials:
 
 - **HOD:**
   - Employee Number: 123-emp-456
-  - Password: 123emp123
+  - Password: testemp123
 - **Student:**
   - Registration Number: Uet-19s-bscs-13
-  - Password: zain123
+  - Password: teststd123
 - **Admin:**
   - Username: admin
   - Password: admin123
